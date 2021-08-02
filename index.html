@@ -4,41 +4,260 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaScript Technical Documentation</title>
+    <title>CSS Technical Documentation</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
     <nav id="navbar">
-      <header>JS Documentation</header>
+      <header>CSS Documentation</header>
       <ul>
         <li>
-          <a class="nav-link" href="#Aaaa">Aaaa</a>
+          <a class="nav-link" href="#What_is_CSS">What is CSS?</a>
         </li>
         <li>
-          <a class="nav-link" href="#Bbbb">Bbbb</a>
+          <a class="nav-link" href="#How_CSS_affects_HTML"
+            >How CSS affects HMTL</a
+          >
         </li>
         <li>
-          <a class="nav-link" href="#Cccc">Cccc</a>
+          <a class="nav-link" href="#How_CSS_works">How CSS works</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#CSS_and_the_DOM">CSS and the DOM</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#3_ways_of_applying_CSS"
+            >3 ways of applying CSS</a
+          >
         </li>
       </ul>
     </nav>
     <main id="main-doc">
-      <section class="main-section" id="Aaaa">
-        <header>Intro</header>
+      <section class="main-section" id="What_is_CSS?">
+        <header class="main-header">What is CSS?</header>
         <article>
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et.
+            CSS (Cascading Style Sheets) allows you to create great-looking web
+            pages. While HTML provides the structure of the page, CSS provides
+            the the visual layout and it does that for a variety of devices.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et.
+            CSS is independent of HTML and can be used with any XML-based markup
+            language. The separation of HTML from CSS makes it easier to
+            maintain sites, share style sheets across pages, and tailor pages to
+            different environments. This is referred to as the separation of
+            structure from presentation.
           </p>
-          <ul>
-            <li>Lorem ipsum dolor sit amet.</li>
-          </ul>
+        </article>
+      </section>
+      <hr />
+      <section class="main-section" id="How_CSS_affects_HTML">
+        <header class="main-header">How CSS affects HTML</header>
+        <article>
+          <p>
+            Let's say we added some CSS to our document, to style it. Again, the
+            HTML is as follows:
+          </p>
+          <p class="block lang-html">
+            &lt;<span>!DOCTYPE html</span>&gt; <br />&lt;<span>html</span>&gt;
+            <br />  &lt;<span>head</span>&gt; <br />    &lt;<span
+              >meta charset="utf-8"</span
+            >&gt; <br />    &lt;<span>title</span>&gt;My CSS
+            experiment&lt;<span>/title</span>&gt; <br />    &lt;<span
+              >link rel="stylesheet" href="style.css"</span
+            >&gt; <br />  &lt;<span>/head</span>&gt;
+            <br />  &lt;<span>body</span>&gt;
+            <br />    &lt;<span>h1</span>&gt;Hello
+            World!&lt;/<span>h1</span>&gt; <br />    &lt;<span>p</span>&gt;This
+            is my first CSS example&lt;<span>/p</span>&gt;
+            <br />  &lt;<span>/body</span>&gt; <br />&lt;<span>/html</span>&gt;
+          </p>
+          <p>Now let's look at the corresponding CSS styling rules:</p>
+          <p class="block lang-css">
+            <span class="h">h1</span> { <br />  <span>color</span>: blue;
+            <br />  <span>background-color</span>: yellow;
+            <br />  <span>border</span>: 1px solid black; <br />} <br /><span
+              class="h"
+              >p</span
+            >
+            { <br />  <span>color</span>: red; <br />}
+          </p>
+          <p>
+            The first rule starts with an "h1" selector, which means that it
+            will apply its property values to the "&lth1>" element. It contains
+            three properties and their values (each property/value pair is
+            called a declaration):
+          </p>
+          <ol>
+            <li>The first one sets the text color to blue.</li>
+            <li>The second sets the background color to yellow.</li>
+            <li>
+              The third one puts a border around the header that is 1 pixel
+              wide, solid (not dotted, or dashed, etc.), and colored black.
+            </li>
+          </ol>
+          <p>
+            The second rule starts with a "p" selector, which means that it will
+            apply its property values to the &ltp&gt element. It contains one
+            declaration, which sets the text color to red.
+          </p>
+        </article>
+      </section>
+      <hr />
+      <section class="main-section" id="How_CSS_works">
+        <header class="main-header">How CSS works</header>
+        <article>
+          <p>
+            When a browser displays a document, it must combine the document's
+            content with its style information. While the technical details of
+            the process are rather complicated, here is what roughly happens:
+          </p>
+          <ol>
+            <li>The browser loads the HTML file.</li>
+            <li>
+              It converts the HTML into a DOM (Document Object Model). The DOM
+              represents the document in the computer's memory.
+            </li>
+            <li>
+              The browser then fetches most of the resources that are linked to
+              by the HTML document, such as embedded images and videos and of
+              course the CSS file.
+            </li>
+            <li>
+              The browser parses the fetched CSS, and sorts the different rules
+              by their selector types into different "buckets", e.g. element,
+              class, ID, and so on. Based on the selectors it finds, it works
+              out which rules should be applied to which nodes in the DOM, and
+              attaches style to them as required.
+            </li>
+            <li>
+              The render tree is laid out in the structure it should appear in
+              after the rules have been applied to it.
+            </li>
+            <li>
+              The visual display of the page is shown on the screen (this stage
+              is called painting).
+            </li>
+          </ol>
+          <p>
+            Here is a diagramm from mozilla.org that visualizes this process:
+          </p>
+          <p>
+            <img
+              alt="CSS Process Visualized"
+              src="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_works/rendering.svg"
+            />
+          </p>
+        </article>
+      </section>
+      <hr />
+      <section class="main-section" id="CSS_and_the_DOM">
+        <header class="main-header">CSS and the DOM</header>
+        <article>
+          <p>
+            DOM has a tree-like structure. Each element, attribute, and piece of
+            text in the markup language becomes a DOM node in the tree
+            structure. The nodes are defined by their relationship to other DOM
+            nodes. Some elements are parents of child nodes, and child nodes
+            have siblings.
+          </p>
+          <p>
+            Understanding the DOM helps you design, debug and maintain your CSS
+            because the DOM is where your CSS and the document's content meet
+            up. When you start working with browser DevTools you will be
+            navigating the DOM as you select items in order to see which rules
+            apply.
+          </p>
+        </article>
+      </section>
+      <hr />
+      <section class="main-section" id="3_ways_of_applying_CSS">
+        <header class="main-header">3 ways of applying CSS</header>
+        <article>
+          <p>There are 3 basic ways to apply CSS to yout HTML document.</p>
+          <ol>
+            <li><b>Inline</b></li>
+            <p>
+              Inline styles are plonked straight into the HTML tags using the
+              style attribute. They look like this:
+            </p>
+            <code> &ltp&gt style="color: red">your text&lt/p&gt </code>
+            <p>
+              This will make that specific paragraph red. But, if you remember,
+              the best-practice approach is that the HTML should be a
+              stand-alone, presentation free document, and so in-line styles
+              should be avoided wherever possible.
+            </p>
+            <li><b>Internal</b></li>
+            <p>
+              Embedded, or internal, styles are used for the whole page. Inside
+              the head element, the style tags surround all of the styles for
+              the page. They look like this:
+            </p>
+            <code>
+              &lt!DOCTYPE html&gt<br />
+              &lthtml&gt<br />
+              &lthead&gt<br />
+              &lttitle&gtCSS Example&lt/title&gt<br />
+              &ltstyle&gt<br />
+
+              &nbsp&nbspp {<br />
+              &nbsp&nbsp&nbsp&nbspcolor: red;<br />
+              &nbsp&nbsp}<br />
+
+              &nbsp&nbspa {<br />
+              &nbsp&nbsp&nbsp&nbspcolor: blue;<br />
+              &nbsp&nbsp}<br />
+              &lt/style&gt<br />
+              ...
+            </code>
+            <p>
+              This will make all of the paragraphs in the page red and all of
+              the links blue. Although preferable to soiling our HTML with
+              inline presentation, it is similarly usually preferable to keep
+              the HTML and the CSS files separate.
+            </p>
+            <li><b>External</b></li>
+            <p>
+              External styles are used for the whole, multiple-page website.
+              There is a separate CSS file, and it looks like this:
+              <code>
+                &nbsp&nbspp {<br />
+                &nbsp&nbsp&nbsp&nbspcolor: red;<br />
+                &nbsp&nbsp}<br />
+
+                &nbsp&nbspa {<br />
+                &nbsp&nbsp&nbsp&nbspcolor: blue;<br />
+                &nbsp&nbsp}<br />
+              </code>
+            </p>
+            <p>
+              If this file is saved as “style.css” in the same directory as your
+              HTML page. It can be linked to in the HTML like this:
+            </p>
+            <code>
+              &lt!DOCTYPE html&gt<br />
+              &lthtml&gt<br />
+              &lthead&gt<br />
+              &nbsp&nbsp&lttitle&gtCSS Example&lt/title&gt<br />
+              &nbsp&nbsp&ltlink rel="stylesheet" href="style.css"&gt<br />
+              ...<br />
+            </code>
+          </ol>
+          <p>
+            So if you want to create a site with the title "My first web page"
+            and link the CSS file to your HTML in the same directory it would
+            look like this:
+          </p>
+          <code>
+            &lt!DOCTYPE html&gt<br />
+            &lthtml&gt<br />
+            &lthead&gt<br />
+            &nbsp&nbsp&lttitle&gtMy first web page&lt/title&gt<br />
+            &nbsp&nbsp&ltlink rel="stylesheet" href="style.css"&gt<br />
+            &lt/head&gt<br />
+            ...
+          </code>
         </article>
       </section>
     </main>

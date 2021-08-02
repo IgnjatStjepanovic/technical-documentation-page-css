@@ -13,8 +13,13 @@ main {
 header {    
     color: black;
     margin: 10px;
-    text-align: left;
+    text-align: center;
     font-size: 1.8em;    
+}
+
+.main-header {
+    text-align: left;
+    margin: 0px;
 }
 
 ul {
@@ -30,6 +35,7 @@ ul {
 li {
     display: list-item;
     text-align: -webkit-match-parent;
+    margin-bottom: 5px;
 }
 
 #navbar {
@@ -41,6 +47,13 @@ li {
     height: 100%;
     border-right: solid;
     border-color: rgba(0, 22, 22, 0.4);
+}
+
+#navbar ul {
+    height: 88%;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #navbar li {
@@ -65,3 +78,41 @@ li {
     padding: 20px;
     margin-bottom: 110px;
 }
+
+img {
+    width: 635px;
+    height: 245px;
+    max-width: 635px;
+}
+
+.block {
+    font-family: monospace;
+    background-color: #333;
+    color: #fff;
+    padding: 1px 4px;
+    border-radius: 3px;
+    text-shadow: 0 1px 2px #000;
+    box-shadow: 0 1px 2px #777;
+}
+
+.lang-html span {
+    color: rgb(115, 177, 219);
+}
+
+.lang-css span {
+    color: rgb(231, 155, 191);
+}
+
+code {
+    display: block;
+    text-align: left;    
+    position: relative;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 2;    
+    background-color: #f7f7f7;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
